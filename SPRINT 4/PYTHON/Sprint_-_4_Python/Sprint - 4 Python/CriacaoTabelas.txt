@@ -1,0 +1,28 @@
+create table usuario (
+    usuario_id NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
+    usuario_nome VARCHAR(50) NOT NULL,
+    usuario_email VARCHAR(50) NOT NULL,
+    usuario_senha VARCHAR(50) NOT NULL,
+    data_nascimento DATE NOT NULL,
+    usuario_acessibilidadeID NUMBER,
+    usuario_acessibilidadeTipo VARCHAR(50),
+    CONSTRAINT acessibilidade_id_fk FOREIGN KEY (usuario_acessibilidadeID) REFERENCES acessibilidade(acessibilidade_id),
+    CONSTRAINT acessibilidade_tipo_fk FOREIGN KEY (usuario_acessibilidadeTipo) REFERENCES acessibilidade(acessibilidade_tipo)
+);
+
+create table acessibilidade (
+    acessibilidade_id NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
+    acessibilidade_tipo VARCHAR(50) NOT NULL,
+    acessibilidade_descricao VARCHAR(150) NOT NULL,
+    CONSTRAINT acessibilidade_tipo_unique UNIQUE (acessibilidade_tipo)
+);
+
+select * from usuario;
+select * from acessibilidade;
+
+drop table usuario;
+drop table acessibilidade;
+
+
+
+

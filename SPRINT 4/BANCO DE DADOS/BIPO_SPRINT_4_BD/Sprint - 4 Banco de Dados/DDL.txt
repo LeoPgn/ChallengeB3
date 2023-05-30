@@ -1,0 +1,131 @@
+--Integrantes:
+
+--Leonardo Paganini – RM 96562
+--Mariana Marques Sabio – RM 96906
+--Jhonn Brandon Cabrera Tacachiri – RM 97305
+--Matheus Leite Oliveira Scalfo – RM 96893
+
+
+-- Criação das tabelas
+
+create table usuario (
+    usuario_id number(4) NOT NULL PRIMARY KEY, 
+    usuario_nome VARCHAR(50) NOT NULL,
+    usuario_email VARCHAR(50) NOT NULL, 
+    usuario_senha VARCHAR(50) NOT NULL,
+    data_nascimento DATE NOT NULL
+);
+
+create table acessibilidade (
+    acessibilidade_id NUMBER(4) NOT NULL PRIMARY KEY, 
+    acessibilidade_tipo VARCHAR(50) NOT NULL,
+    acessibilidade_descricao VARCHAR(150) NOT NULL,
+    acessibilidade_usuarioID NUMBER(4),
+    CONSTRAINT usuario_usuario_id_fk FOREIGN KEY (acessibilidade_usuarioID) REFERENCES usuario(usuario_id)
+);
+
+create table curso (
+    curso_id NUMBER(4) PRIMARY KEY NOT NULL,
+    curso_titulo VARCHAR(100) NOT NULL,
+    curso_descricao VARCHAR(150) NOT NULL,
+    curso_usuarioID NUMBER(4),
+    CONSTRAINT usuario_id_fk FOREIGN KEY (curso_usuarioID) REFERENCES usuario(usuario_id)
+);
+
+-- Inserindo dados na tabela "usuario"
+insert into usuario values (1, 'Sarah', ' sarah.green@protonmail.com', 's3cur3P@ssw0rd', TO_DATE('1992-06-15', 'YYYY-MM-DD'));
+insert into usuario values (2, 'John', 'john.smith@yahoo.com', '8#9F!2p7', TO_DATE('1995-11-03', 'YYYY-MM-DD'));
+insert into usuario values (3, 'Emily', 'emily.davis@hotmail.com', 'P@ssw0rd123', TO_DATE('1998-09-28', 'YYYY-MM-DD'));
+insert into usuario values (4, 'David', ' david.johnson@outlook.com', '5tr0ngP@55', TO_DATE('2001-07-12', 'YYYY-MM-DD'));
+insert into usuario values (5, 'Olivia', 'olivia.wilson@aol.com', '1L0v3C0d1ng!', TO_DATE('1993-04-19', 'YYYY-MM-DD'));
+insert into usuario values (6, 'Daniel', 'daniel.brown@gmail.com', 'P@ssw0rd!', TO_DATE('2004-12-07', 'YYYY-MM-DD'));
+insert into usuario values (7, 'Sophia', 'sophia.lee@icloud.com', 'Secur1ty#2023', TO_DATE('1996-08-25', 'YYYY-MM-DD'));
+
+-- Inserindo dados na tabela "acessibilidade"
+insert into acessibilidade values (1, 'Tema ajustável', 'Opção de escolher entre tema escuro ou claro para melhorar a legibilidade e atender às preferências visuais dos usuários', 3);
+insert into acessibilidade values (2, 'Tamanho de fonte ajustável', 'Opção para aumentar ou diminuir a fonte, auxiliando pessoas com dificuldades de leitura', 6);
+insert into acessibilidade values (3, 'Legendas', 'Texto em vídeos para pessoas com deficiência auditiva', 7);
+insert into acessibilidade values (4, 'Texto alternativo', 'Descrições curtas para imagens, ajudando usuários com deficiência visual', 1);
+insert into acessibilidade values (5, 'Teclado acessível', 'Navegação e interação usando apenas o teclado', 3);
+insert into acessibilidade values (6, 'Links descritivos', 'Textos claros e descritivos nos links', 1);
+insert into acessibilidade values (7, 'Organização lógica do conteúdo', 'Estrutura clara para facilitar a navegação em leitores de tela', 2);
+
+-- Inserindo dados na tabela "curso"
+insert into curso values (1, 'Introdução ao IPO: O que você precisa saber', 'Visão geral dos conceitos básicos do IPO e por que é relevante para investidores', 1);
+insert into curso values (2, 'Passo a passo do IPO: Do planejamento à listagem', 'Visão geral simplificada do processo de IPO e listagem de uma empresa', 3);
+insert into curso values (3, 'Avaliação de IPO: Determinando o valor de uma empresa', ' Breve explicação sobre a avaliação do valor de uma empresa para um IPO', 7);
+insert into curso values (4, 'Riscos e benefícios do IPO: O que considerar', 'Breve visão geral dos riscos e benefícios ao investir em empresas que passaram por um IPO', 4);
+insert into curso values (5, 'Participando de um IPO: Guia prático para investidores', 'Dicas concisas para investidores interessados em participar de um IPO', 3);
+insert into curso values (6, 'Histórias de sucesso do IPO: Empresas que decolaram', 'Relatos breves de empresas que tiveram sucesso após um IPO', 5);
+insert into curso values (7, 'Perguntas frequentes sobre IPO: Respostas diretas', 'Respostas rápidas para perguntas comuns sobre IPO', 1);
+
+-- Aplicar 3 testes de atualização
+
+-- Atualizando os dados da tabela "usuario"
+UPDATE usuario SET usuario_nome = 'Novo Nome' WHERE usuario_id = 2;
+UPDATE usuario SET usuario_senha = '123456789';
+UPDATE usuario SET usuario_email = 'rm95211@fiap.com.br' WHERE usuario_id > 5 AND UPPER(usuario_nome) = 'SOPHIA';
+-- Atualizando os dados da tabela "acessibilidade"
+UPDATE acessibilidade SET acessibilidade_descricao = 'Nova Descrição';
+UPDATE acessibilidade SET acessibilidade_tipo = 'Tipo Especial' WHERE acessibilidade_id > 3;
+UPDATE acessibilidade SET acessibilidade_tipo = 'Nova Acessibilidade' WHERE acessibilidade_id = 4;
+-- Atualizando os dados da tabela "curso"
+UPDATE curso SET curso_descricao = 'Nova Descrição' WHERE UPPER(curso_descricao) LIKE '%INVESTIDORES';
+UPDATE curso SET curso_titulo = 'Novo Titulo' WHERE curso_id = 7;
+UPDATE curso SET curso_titulo = 'Novo Titulo' WHERE curso_id < 2;
+
+-- Aplicar 3 testes de eliminação
+
+-- Excluindo os dados da tabela "acessibilidade"
+DELETE FROM acessibilidade WHERE UPPER(acessibilidade_tipo) LIKE '%LEGENDAS%';
+DELETE FROM acessibilidade WHERE acessibilidade_id = 2;
+DELETE FROM acessibilidade WHERE UPPER(acessibilidade_descricao) LIKE '%TECLADO';
+-- Excluindo os dados da tabela "curso"
+DELETE FROM curso WHERE UPPER(curso_titulo) LIKE '%EMPRESA';
+DELETE FROM curso WHERE UPPER(curso_titulo) LIKE 'H%';
+delete from curso where curso_id = 5;
+-- Excluindo os dados da tabela "usuario"
+delete from usuario where usuario_id = 7;
+delete from usuario where UPPER(usuario_email) like '%@GMAIL.COM';
+delete from usuario where UPPER(usuario_nome) like '%OLIVIA%';
+
+select * from usuario order by 1,2,3,4,5;
+select * from acessibilidade order by 1,2,3,4;
+select * from curso order by 1,2,3,4;
+
+-- Implementar a criação de relatórios na aplicação, deverá ser implementado os seguintes relatórios
+
+-- Relatório utilizando classificação de dados, a escolha da tabela é decisão do grupo
+SELECT usuario_nome, usuario_email FROM usuario ORDER BY usuario_nome ASC;
+SELECT curso_titulo, curso_descricao FROM curso ORDER BY curso_titulo DESC;
+-- Relatório utilizando alguma função do tipo numérica simples
+SELECT COUNT(*) AS total_usuarios FROM usuario;
+-- Relatório utilizando alguma função de grupo
+SELECT u.usuario_nome, COUNT(a.acessibilidade_id) AS total_acessibilidades
+FROM usuario u
+LEFT JOIN acessibilidade a ON u.usuario_id = a.acessibilidade_usuarioID
+GROUP BY u.usuario_nome;
+-- Relatório utilizando sub consulta
+SELECT usuario_nome, usuario_email FROM usuario
+WHERE usuario_id IN (
+    SELECT acessibilidade_usuarioID
+    FROM acessibilidade
+    WHERE acessibilidade_tipo = 'Tema ajustável'
+);
+-- Relatório utilizando junção de tabelas
+SELECT u.usuario_nome, u.usuario_email, COUNT(a.acessibilidade_id) AS total_acessibilidades, COUNT(c.curso_id) AS total_cursos
+FROM usuario u
+LEFT JOIN acessibilidade a ON u.usuario_id = a.acessibilidade_usuarioID
+LEFT JOIN curso c ON u.usuario_id = c.curso_usuarioID
+GROUP BY u.usuario_nome, u.usuario_email
+ORDER BY u.usuario_nome ASC;
+
+
+
+select * from usuario order by 1,2,3,4,5;
+select * from acessibilidade order by 1,2,3,4;
+select * from curso order by 1,2,3,4;
+
+drop table acessibilidade;
+drop table curso;
+drop table usuario;
