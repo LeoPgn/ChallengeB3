@@ -1,0 +1,34 @@
+Ideias Challenge B³ 
+
+- IA QUE FAZ RECONHECIMENTO DOS COMPORTAMENTOS E AS CARACTERISTICAS DO USUÁRIO QUE BUSCA INICIAR NOS INVESTIMENTOS
+- A IA QUESTIONA O USUÁRIO DE QUAL O VALOR QUE ELE PRETENDE INICIAR
+- APOS O RECONHECIMENTO, A IA BUSCA (CONFORME AS CARACTERISTICAS) A MELHOR FORMA DE INVESTIR PARA O USUÁRIO
+- O USUARIO TERA O FEEDBACK DA IA COM AS MELHORES OPÇÕES DE INVESTIMENTOS (FUTUROS, OPERAÇÕES CRUZADAS, AÇÕES DA BOLSA)
+- COMO O BOT PODE ENCAIXAR AS COMUNICAÇÕES MAIS HUMANAS EM SEUS DIRECIONAMENTOS, NÃO FAZENDO O USUÁRIO REFORMULAR MUITAS PERGUNTAS
+***BUSCAR ENTENDER O QUE É E COMO FUNCIONA UMA OFERTA PÚBLICA
+
+
+experiencia personalizada para todo o usuário que utilizar o bot
+incentivar o cadastro do usuario
+aprendizado de maquina incluindo os dados de usuário de investimentos
+problema: dados (muitos dados) 
+curadoria = é a profissão que faz as consultas de preferências de seu estilo (por exemplo: estilos musicais). 
+A IDEIA É FAZER UM CHATBOT CURADOR
+Pesquisar sobre sistemas especialistas (IA)
+
+
+publico alvo - escolher um (deficientes, pessoas de baixa renda, escolaridade
+
+históricos de outras empresas na mesma situação
+
+Definir logo o tema para o projeto iniciar
+Como podemos começar?? Dicas:
+
+java script - buscar frameworks
+html - buscar frameworks
+
+
+Procurar oq já tem no mercado e procurar contrastes/ diferenciações (dados concretos já apresentados em outras questões no site https://www.kaggle.com/)
+
+
+

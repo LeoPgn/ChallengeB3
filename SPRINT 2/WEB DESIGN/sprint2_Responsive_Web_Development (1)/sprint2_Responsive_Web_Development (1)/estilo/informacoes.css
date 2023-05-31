@@ -1,0 +1,36 @@
+#informacoes{
+    display: flex;
+    
+    height: 654px;
+    width: 1262px;
+    justify-content: space-around;
+}
+
+#imagemDestaque{
+    height: 477px;
+    width: 846px;   
+}
+
+#noticias{
+    display: flex;
+    flex-direction: column;
+}
+
+#storiesNoticias{
+    display: flex;
+}
+
+#graficoTabela{
+    display: flex;
+    flex-direction: column;
+}
+
+#grafico{
+    width: 372px;
+    
+}
+
+#imagemStories{
+    display: flex;
+    flex-direction: column;
+}

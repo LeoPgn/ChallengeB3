@@ -1,0 +1,42 @@
+#stories{
+    display: flex;
+    padding: 20px;    
+    justify-content: space-between;
+    align-items: center;
+}
+
+#stories1{
+    display: flex;
+    justify-content: space-between;
+    max-width: 290px;
+}
+
+#imagem1{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border: 1px solid #F5AA1E;
+}
+
+#imagemStories1{
+    height: 80px;
+    width: 80px;
+}
+
+#txtStories1{
+    display: flex;
+    flex-direction: column;
+    max-height: 400px;
+}
+
+#tituloStories1{
+    display: flex;
+    background-color: #F5AA1E;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 13px;
+}
+
+#historiaStories1{
+    color: #40444D;
+}

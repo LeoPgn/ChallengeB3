@@ -1,0 +1,22 @@
+#cabecalho {
+    display: flex   ;
+    background-color: #002C63;
+    height: 74px;
+    justify-content: right;
+    padding-right: 200px;
+    align-items: center;
+}
+
+#noticias,
+#objetivosFinanceiros,
+#tiposInvestimentos,
+#paraVoce {
+    color: white;   
+    padding: 15px;
+    font-size: 17px;
+}
+
+#linksIniciais{
+    color: white;
+    position: right;
+}

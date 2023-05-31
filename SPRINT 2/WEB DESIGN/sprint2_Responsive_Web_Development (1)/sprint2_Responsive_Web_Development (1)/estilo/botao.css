@@ -1,0 +1,17 @@
+button{
+    background-color: #002C63;
+    color: white;
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    right: 15px;
+    position: absolute;
+    border: none;
+    outline: none;
+}
+
+#chatbot{
+    position: absolute;
+    height: 300px;
+    right: 53px;
+}

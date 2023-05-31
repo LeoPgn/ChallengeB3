@@ -1,0 +1,34 @@
+create table cursos(id_cursos number(10) NOT NULL);
+alter table cursos add primary key (id_cursos);
+desc cursos;
+drop table cursos;
+select * from cursos;
+
+create table acessibilidade(id_acessibilidade number(4) NOT NULL primary key, tipo_deficiencia VARCHAR(50) NULL);
+alter table acessibilidade add descricao_acessibilidade VARCHAR(500) NULL;
+alter table acessibilidade add data_verificacao DATE NULL;
+alter table acessibilidade add responsavel_verificacao VARCHAR(50) NULL;
+desc acessibilidade;
+drop table acessibilidade;
+select * from acessibilidade;
+
+create table usuarios(id_usuario number(4) NOT NULL primary key references acessibilidade, nome VARCHAR(50) NOT NULL,
+email VARCHAR(50) NOT NULL, senha VARCHAR(50) NOT NULL);
+alter table usuarios add data_nascimento DATE NOT NULL;
+desc usuarios;
+drop table usuarios;
+select * from usuarios;
+
+commit;
+
+insert into cursos values(1);
+
+insert into acessibilidade values(1, 'Deficiência visual', 'A deficiência visual é uma condição na qual a pessoa apresenta algum tipo de dificuldade na visão', '01-MAR-2023', 'Jhonn');
+
+insert into usuarios  values(1, 'Jhonn', 'jhonn@gmail.com', '122442', '04/APR/2004');
+update usuarios set senha = '43536434' where id_usuario = 1;
+
+select * from cursos;
+select * from acessibilidade;
+select * from usuarios;
+

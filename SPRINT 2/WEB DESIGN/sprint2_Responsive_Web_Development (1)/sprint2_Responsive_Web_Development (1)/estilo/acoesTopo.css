@@ -1,0 +1,12 @@
+#acoesRolando{
+    display: flex;
+    padding-top: 5px;
+    padding-left: 40px;
+    justify-content: space-around;
+    white-space: nowrap;
+    gap: 60px;
+}
+
+.desempenho{
+	color: red;
+}
